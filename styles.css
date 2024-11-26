@@ -19,18 +19,18 @@ header {
     color: white;
     text-align: center;
     padding: 30px 15px;
+    position: relative;
 }
 
 header h1 {
     font-size: 2.8rem;
     font-weight: 700;
-    margin-bottom: 10px;
 }
 
 header p {
     font-size: 1.3rem;
     font-weight: 400;
-    color: #f8e9a1; /* Light golden-yellow for contrast */
+    color: #f8e9a1;
     margin-top: 10px;
 }
 
@@ -39,33 +39,61 @@ header p {
     height: 150px;
     border-radius: 50%;
     margin: 20px auto;
-    border: 4px solid #fff;
+    border: 4px solid #f39c12;
     object-fit: cover;
 }
 
-/* Navigation */
-nav ul {
+.badges {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.badges img {
+    width: 80px;
+    height: auto;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+.badges img:hover {
+    transform: scale(1.1);
+}
+
+/* Navigation - Horizontal Layout */
+nav ul.horizontal-nav {
     list-style: none;
-    margin: 20px 0 10px 0;
-    padding: 0;
+    padding: 10px;
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 20px; /* Spacing between navigation items */
+    background-color: #6a11cb; /* Purple background for the navigation bar */
+    margin-top: 20px;
 }
 
-nav ul li a {
-    color: #ffeaa7;
+nav ul.horizontal-nav li {
+    display: inline;
+}
+
+nav ul.horizontal-nav li a {
     text-decoration: none;
+    color: #ffffff;
     font-size: 1.1rem;
     font-weight: 500;
-    transition: color 0.3s ease;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-nav ul li a:hover {
+nav ul.horizontal-nav li a:hover {
+    background-color: #2575fc;
     color: #ffffff;
 }
 
-/* Sections */
+/* Main Content Sections */
 section {
     padding: 30px;
     margin: 20px auto;
@@ -75,25 +103,22 @@ section {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
+/* Section Headings */
+.section-title {
     color: #6a11cb;
-    margin-bottom: 15px;
-    font-size: 2rem;
+    font-size: 2.2rem;
     text-transform: uppercase;
-    border-bottom: 3px solid #2575fc;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    border-bottom: 4px solid #2575fc;
     padding-bottom: 5px;
     display: inline-block;
 }
 
-p, ul {
-    margin-top: 10px;
-    font-size: 1rem;
-    color: #34495e;
-}
-
+/* Unordered Lists */
 ul {
     list-style: none;
-    padding: 0;
+    padding: 10px 0;
 }
 
 ul li {
@@ -113,14 +138,16 @@ ul li:before {
 
 /* Links */
 a {
-    color: #6a11cb;
+    color: #2575fc;
     text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
+    font-weight: bold;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease, color 0.3s ease;
 }
 
 a:hover {
-    color: #2575fc;
+    border-color: #6a11cb;
+    color: #6a11cb;
 }
 
 /* Footer */
@@ -139,12 +166,12 @@ footer {
         font-size: 2.2rem;
     }
 
-    nav ul {
+    nav ul.horizontal-nav {
         flex-direction: column;
         gap: 10px;
     }
 
-    nav ul li a {
+    nav ul.horizontal-nav li a {
         font-size: 1rem;
     }
 
@@ -152,7 +179,11 @@ footer {
         padding: 20px;
     }
 
-    h2 {
+    .badges img {
+        width: 60px; /* Smaller badges for mobile view */
+    }
+
+    .section-title {
         font-size: 1.8rem;
     }
 }
